@@ -9,27 +9,35 @@ var guessedLetters= [];
 var userLetters = document.onkeyup;
 
 var compLetters = validLetters[Math.floor(Math.random() * validLetters.length)];
+// for (let i = 0; i < compLetters.length; i++) {
+    console.log (compLetters);
 
 document.onkeyup = function(event){ 
     var userLetters = event.key;
-
 
 if (validLetters.indexOf(userLetters) > -1){
     if (userLetters === compLetters){
         winCount++;
         guessesRemaining = 8;
         guessedLetters = [];
+        compLetters = validLetters[Math.floor(Math.random() * validLetters.length)];{
+            console.log(compLetters)
+        }
     }
     if (userLetters != compLetters) {
         guessesRemaining --;
         guessedLetters.push(userLetters);
+        }
     }
 
     if (guessesRemaining === 0){
         lossCount++;
         guessesRemaining = 8;
         guessedLetters = [];
-         }
+        compLetters = validLetters[Math.floor(Math.random() * validLetters.length)];{
+            console.log(compLetters)
+        }
+    }
 
 var html = 
     '<p><h2>Psychic Game</h2></p>'+
@@ -38,5 +46,4 @@ var html =
     '<p>Guesses Remaining: ' + guessesRemaining + '</p>'+
     '<p>Letters Guessed: ' + guessedLetters.join(', ') + '</p>';
 document.querySelector("#game").innerHTML = html;
-        }
-};
+        };
